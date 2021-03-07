@@ -4,9 +4,9 @@ export default function Gallery() {
   // const
   const renderTimeline = () => {
     return (
-      <div className="relative m-8">
+      <div className="relative m-8 h-full overflow-auto">
         <div
-          className="border-r-2 border-gray-200 border-dotted absolute h-full top-0 z-0"
+          className="border-r-2 border-gray-200 border-dotted absolute h-auto top-0 z-0"
           style={{ left: "7px" }}
         ></div>
         <ul className="list-none m-0 p-0">
@@ -19,7 +19,7 @@ export default function Gallery() {
             </div>
             <div className="ml-12">
               <div>
-                <span class="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
+                <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   US TRIP
                 </span>
               </div>
@@ -30,7 +30,7 @@ export default function Gallery() {
                 <img src="/images/images.jpeg" />
               </div>
               <div>
-                <span class="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
+                <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   OOTY
                 </span>
               </div>
@@ -95,8 +95,8 @@ export default function Gallery() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-900">
-      <div className="relative min-h-screen flex flex-col items-center bg-gray-900">
+    <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900">
+      <div className="relative h-full flex flex-col items-center bg-gray-900">
         <div className="flex justify-center mt-4">
           <a
             href="#"
