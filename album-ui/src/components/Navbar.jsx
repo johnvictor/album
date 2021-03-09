@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Navbar() {
+  const [showContextMenu, setShowContextMenu] = useState(false);
+
+  const showHideContextMenu = (value) => {
+    setShowContextMenu(value);
+    // setShowContextMenu(true);
+  };
+
+  const test = (value) => {
+    console.log(value);
+  };
+
   return (
     <nav className="bg-gray-900">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -113,8 +124,11 @@ export default function Navbar() {
             <div className="ml-3 relative">
               <div>
                 <button
+                  onClick={() => showHideContextMenu(true)}
+                  onBlur={() => showHideContextMenu(false)}
                   type="button"
-                  className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 
+                            focus:ring-offset-gray-800 focus:ring-white"
                   id="user-menu"
                   aria-expanded="false"
                   aria-haspopup="true"
@@ -128,34 +142,36 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <div
-                className="z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="user-menu"
-              >
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  role="menuitem"
+              {showContextMenu && (
+                <div
+                  className="z-50 mt-3 origin-top-right absolute right-0 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="user-menu"
                 >
-                  Your Profile
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  role="menuitem"
-                >
-                  Settings
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  role="menuitem"
-                >
-                  Sign out
-                </a>
-              </div>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Your Profile
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Settings
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Sign out
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

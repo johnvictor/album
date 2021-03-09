@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import RenderTaggedUsers from "./RenderTaggedUsers";
 import UploadPhotosPreview from "./UploadPhotosPreview";
 
 export default function UploadPhotosForm() {
@@ -30,8 +31,6 @@ export default function UploadPhotosForm() {
     setImages(photos);
   };
 
-  const handlePhotosUpload = () => {};
-
   const submitUploadPhotoForm = () => {
     history.push("/gallery");
   };
@@ -42,18 +41,22 @@ export default function UploadPhotosForm() {
     }
     return (
       <div>
-        <div className="text-blue-700">Album name</div>
+        <label htmlFor="album-name" className="text-gray-300 text-xs">
+          Album name
+        </label>
         <input
           type="text"
-          className="mt-1 mb-5 w-64 block w-full border-none bg-blue-900 h-8 rounded-xl shadow-lg focus:bg-blue-700 focus:ring-0"
+          name="album-name"
+          className="mt-1 mb-5 w-64 block text-sm w-full text-blue-500 border-none bg-blue-900 h-8 rounded-xl 
+                      shadow-lg focus:bg-blue-800 focus:ring-0"
         />
 
-        <div className="text-blue-700">Tag user</div>
+        <label className="text-gray-300 text-xs">Tag user</label>
         <div className="relative w-64 mb-5">
           <input
             type="text"
             name="search"
-            className="bmt-1 block w-full border-none bg-blue-900 h-8 rounded-xl shadow-lg focus:bg-blue-700 focus:ring-0"
+            className="mt-1 text-blue-500 text-sm block w-full border-none bg-blue-900 h-8 rounded-xl shadow-lg focus:bg-blue-800 focus:ring-0"
           />
         </div>
       </div>
@@ -73,11 +76,11 @@ export default function UploadPhotosForm() {
             type="button"
             className="hover:bg-indigo-500 hover:text-gray-100 inline-flex bg-blue-900 
                       items-center px-4 py-2 border border-purple-400 text-base leading-6 
-                      font-medium rounded-md text-blue-900 bg-white focus:border-purple-300 
+                      font-medium rounded-md text-blue-500 bg-white focus:border-purple-300 
                       transition ease-in-out duration-150"
           >
             <svg
-              className="h-6 fill-current hover:text-gray-100"
+              className="h-6 fill-current"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -98,43 +101,7 @@ export default function UploadPhotosForm() {
     );
   };
 
-  const renderTaggedUsers = () => {
-    if (!images.length) {
-      return;
-    }
-
-    return (
-      <div className="w-64">
-        <div className="mb-1 h-5 flex flex-wrap content-center relative tracking-wider text-gray-800 bg-blue-700 text-sm rounded leading-loose">
-          <span className="ml-1 font-semibold">Tagged users</span>
-        </div>
-        <div className="mb-5 h-44 overflow-auto">
-          {taggedUsers.map((taggedUser, index) => (
-            <div
-              key={index}
-              className="mb-1 h-5 flex hover:bg-blue-800 flex-wrap content-center relative tracking-wider text-gray-800 bg-blue-900 text-sm rounded leading-loose"
-            >
-              <span className="ml-1">{taggedUser}</span>
-              <span className="absolute top-0.5 right-1 h-4 w-4 cursor-pointer ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="fill-current text-red-700 hover:text-red-400"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
+  const renderTaggedUsers = () => {};
 
   return (
     <div className="font-sans h-full">
@@ -142,7 +109,7 @@ export default function UploadPhotosForm() {
         <div className="flex items-center h-full justify-center bg-grey-lighter">
           <div className="flex flex-col h-full flex-auto items-center justify-center bg-grey-lighter">
             {renderAlbumDetailsForm()}
-            {renderTaggedUsers()}
+            {images.length && <RenderTaggedUsers taggedUsers={taggedUsers} />}
             <label
               onChange={onFileChange}
               className="w-64 flex flex-col items-center px-4 py-6 bg-blue-900 text-blue rounded-lg shadow-lg tracking-wide border border-blue-900 hover:border-blue-700 cursor-pointer hover:bg-blue hover:text-white transform"

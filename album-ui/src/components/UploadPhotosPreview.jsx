@@ -7,7 +7,7 @@ export default function UploadPhotosPreview({ images }) {
     }
     return (
       <div
-        className="flex flex-col flex-auto h-full items-center justify-center bg-grey-lighter 
+        className="flex flex-col flex-auto m-6 h-full items-center justify-center bg-grey-lighter 
                       grid grid-cols-3 gap-4 -auto-auto transform overflow-auto"
       >
         {images.length &&

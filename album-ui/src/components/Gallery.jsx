@@ -1,12 +1,13 @@
 import React from "react";
+import YearPicker from "./YearPicker";
 
 export default function Gallery() {
   // const
   const renderTimeline = () => {
     return (
-      <div className="relative m-8 h-full overflow-auto">
+      <div className="relative m-8 h-auto">
         <div
-          className="border-r-2 border-gray-200 border-dotted absolute h-auto top-0 z-0"
+          className="border-r-2 border-gray-200 border-dotted h-full absolute bottom-0 top-0 z-0"
           style={{ left: "7px" }}
         ></div>
         <ul className="list-none m-0 p-0">
@@ -95,7 +96,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900">
+    <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900 overflow-auto">
       <div className="relative h-full flex flex-col items-center bg-gray-900">
         <div className="flex justify-center mt-4">
           <a
@@ -116,6 +117,8 @@ export default function Gallery() {
           >
             Monthly
           </a>
+
+          <YearPicker />
         </div>
 
         {renderTimeline()}
