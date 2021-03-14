@@ -1,4 +1,5 @@
 import React from "react";
+import GallerySort from "./GallerySort";
 import YearPicker from "./YearPicker";
 
 export default function Gallery() {
@@ -95,31 +96,15 @@ export default function Gallery() {
     );
   };
 
+  const handleSortAction = (menu) => {
+    console.log(menu);
+  };
+
   return (
     <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900 overflow-auto">
       <div className="relative h-full flex flex-col items-center bg-gray-900">
-        <div className="flex justify-center mt-4">
-          <a
-            href="#"
-            className="rounded-full h-4 flex items-center py-3 px-2 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Uploaded on
-          </a>
-          <a
-            href="#"
-            className="rounded-full h-4 flex items-center py-3 px-2 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 ml-6 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Yearly
-          </a>
-          <a
-            href="#"
-            className="rounded-full h-4 flex items-center py-3 px-2 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 ml-6 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Monthly
-          </a>
-
-          <YearPicker />
-        </div>
+        <GallerySort emitSortAction={handleSortAction} />
+        <YearPicker />
 
         {renderTimeline()}
       </div>

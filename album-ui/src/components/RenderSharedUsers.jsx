@@ -1,18 +1,18 @@
 import React from "react";
 
-export default function RenderTaggedUsers({ taggedUsers }) {
+export default function RenderSharedUsers({ sharedUsers }) {
   return (
     <div className="w-64">
       <div className="mb-1 h-5 flex flex-wrap content-center relative tracking-wider text-gray-300 bg-blue-700 text-sm rounded leading-loose">
-        <span className="ml-1 font-semibold text-xs">Shared users</span>
+        <span className="ml-1 font-semibold text-xs">Shared with</span>
       </div>
       <div className="mb-5 h-44 overflow-auto">
-        {taggedUsers.map((taggedUser, index) => (
+        {sharedUsers.map((sharedUser, index) => (
           <div
             key={index}
             className="mb-1 h-5 flex hover:bg-blue-800 flex-wrap content-center relative tracking-wider text-blue-500 bg-blue-900 text-sm rounded leading-loose"
           >
-            <span className="ml-1">{taggedUser}</span>
+            <span className="ml-1">{sharedUser}</span>
             <span className="absolute top-0.5 right-1 h-4 w-4 cursor-pointer ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

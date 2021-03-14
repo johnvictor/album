@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import RenderTaggedUsers from "./RenderTaggedUsers";
+import RenderSharedUsers from "./RenderSharedUsers";
 import UploadPhotosPreview from "./UploadPhotosPreview";
 
 export default function UploadPhotosForm() {
   const history = useHistory();
   const [images, setImages] = useState(0);
 
-  const [taggedUsers, setTaggedUsers] = useState(() => {
+  const [sharedUsers, setSharedUsers] = useState(() => {
     return [
       "Antony",
       "Mark",
@@ -51,7 +51,7 @@ export default function UploadPhotosForm() {
                       shadow-lg focus:bg-blue-800 focus:ring-0"
         />
 
-        <label className="text-gray-300 text-xs">Tag user</label>
+        <label className="text-gray-300 text-xs">Share with</label>
         <div className="relative w-64 mb-5">
           <input
             type="text"
@@ -101,15 +101,15 @@ export default function UploadPhotosForm() {
     );
   };
 
-  const renderTaggedUsers = () => {};
-
   return (
     <div className="font-sans h-full">
       <div className="relative flex h-full flex-col sm:justify-center items-center bg-gray-900">
         <div className="flex items-center h-full justify-center bg-grey-lighter">
           <div className="flex flex-col h-full flex-auto items-center justify-center bg-grey-lighter">
             {renderAlbumDetailsForm()}
-            {images.length && <RenderTaggedUsers taggedUsers={taggedUsers} />}
+            {images.length && (
+              <RenderSharedUsers RenderSharedUsers sharedUsers={sharedUsers} />
+            )}
             <label
               onChange={onFileChange}
               className="w-64 flex flex-col items-center px-4 py-6 bg-blue-900 text-blue rounded-lg shadow-lg tracking-wide border border-blue-900 hover:border-blue-700 cursor-pointer hover:bg-blue hover:text-white transform"
