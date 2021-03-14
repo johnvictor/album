@@ -23,10 +23,7 @@ export default function GallerySort({ emitSortAction, emitResizeAction }) {
   const handleMenuSelect = ({ title }) => {
     let newMenu = [...menu];
     newMenu = newMenu.map((m) => {
-      m.isSelected = false;
-      if (m.title === title) {
-        m.isSelected = true;
-      }
+      m.isSelected = m.title === title;
       return m;
     });
     emitSortAction(title);
