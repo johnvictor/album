@@ -1,9 +1,12 @@
 import React from "react";
 
-export default function GalleryView() {
+export default function GalleryView({ emitResizeAction }) {
+  const columnOptions = [1, 2, 4];
+
   return (
     <div className="flex justify-center items-center ml-16">
       <svg
+        onClick={() => emitResizeAction(columnOptions[2])}
         className="h-4 w-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 19 14"
@@ -23,6 +26,7 @@ export default function GalleryView() {
         </g>
       </svg>
       <svg
+        onClick={() => emitResizeAction(columnOptions[1])}
         className="h-6 w-6 fill-current ml-1 text-green-900"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -37,6 +41,7 @@ export default function GalleryView() {
         />
       </svg>
       <svg
+        onClick={() => emitResizeAction(columnOptions[0])}
         className="h-5 w-6 fill-current ml-1 text-green-900"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 137.145 137.145"

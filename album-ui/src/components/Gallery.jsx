@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import GallerySort from "./GallerySort";
 import YearPicker from "./YearPicker";
 
 export default function Gallery() {
+  const [columnSize, setColumnSize] = useState(4);
   // const
   const renderTimeline = () => {
     return (
-      <div className="relative m-8 h-auto">
+      <div className="relative m-8 h-auto w-full">
         <div
           className="border-r-2 border-gray-200 border-dotted h-full absolute bottom-0 top-0 z-0"
           style={{ left: "7px" }}
@@ -25,25 +26,25 @@ export default function Gallery() {
                   US TRIP
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
               <div>
                 <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   OOTY
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -56,16 +57,16 @@ export default function Gallery() {
               </div>
             </div>
             <div className="ml-12">
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -78,16 +79,16 @@ export default function Gallery() {
               </div>
             </div>
             <div className="ml-12">
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -100,10 +101,17 @@ export default function Gallery() {
     console.log(menu);
   };
 
+  const handleResizeAction = (size) => {
+    setColumnSize(size);
+  };
+
   return (
     <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900 overflow-auto">
-      <div className="relative h-full flex flex-col items-center bg-gray-900">
-        <GallerySort emitSortAction={handleSortAction} />
+      <div className="relative h-full flex flex-col items-center bg-gray-900 w-full">
+        <GallerySort
+          emitSortAction={handleSortAction}
+          emitResizeAction={handleResizeAction}
+        />
         <YearPicker />
 
         {renderTimeline()}
