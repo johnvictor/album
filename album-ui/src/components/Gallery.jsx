@@ -3,7 +3,8 @@ import GallerySort from "./GallerySort";
 import YearPicker from "./YearPicker";
 
 export default function Gallery() {
-  const [columnSize, setColumnSize] = useState(4);
+  const columnSizes = [4, 2, 1];
+  const [columnSize, setColumnSize] = useState(columnSizes[0]);
   // const
   const renderTimeline = () => {
     return (
@@ -101,8 +102,8 @@ export default function Gallery() {
     console.log(menu);
   };
 
-  const handleResizeAction = (size) => {
-    setColumnSize(size);
+  const handleResizeAction = (index) => {
+    setColumnSize(columnSizes[index]);
   };
 
   return (
