@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import GallerySort from "./GallerySort";
+import YearPicker from "./YearPicker";
 
 export default function Gallery() {
+  const [columnSize, setColumnSize] = useState(4);
   // const
   const renderTimeline = () => {
     return (
-      <div className="relative m-8">
+      <div className="relative m-8 h-auto w-full">
         <div
-          className="border-r-2 border-gray-200 border-dotted absolute h-full top-0 z-0"
+          className="border-r-2 border-gray-200 border-dotted h-full absolute bottom-0 top-0 z-0"
           style={{ left: "7px" }}
         ></div>
         <ul className="list-none m-0 p-0">
@@ -19,29 +22,29 @@ export default function Gallery() {
             </div>
             <div className="ml-12">
               <div>
-                <span class="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
+                <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   US TRIP
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
               <div>
-                <span class="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
+                <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   OOTY
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -54,16 +57,16 @@ export default function Gallery() {
               </div>
             </div>
             <div className="ml-12">
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -76,16 +79,16 @@ export default function Gallery() {
               </div>
             </div>
             <div className="ml-12">
-              <div className="grid grid-cols-4 gap-12">
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
-                <img src="/images/images.jpeg" />
+              <div className={`grid grid-cols-${columnSize} gap-12`}>
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
+                <img className="w-full" src="/images/images.jpeg" />
               </div>
             </div>
           </li>
@@ -94,29 +97,22 @@ export default function Gallery() {
     );
   };
 
+  const handleSortAction = (menu) => {
+    console.log(menu);
+  };
+
+  const handleResizeAction = (size) => {
+    setColumnSize(size);
+  };
+
   return (
-    <div className="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-900">
-      <div className="relative min-h-screen flex flex-col items-center bg-gray-900">
-        <div className="flex justify-center mt-4">
-          <a
-            href="#"
-            className="rounded-full py-3 px-4 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Uploaded on
-          </a>
-          <a
-            href="#"
-            className="rounded-full py-3 px-4 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 ml-6 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Yearly
-          </a>
-          <a
-            href="#"
-            className="rounded-full py-3 px-4 uppercase text-xs font-bold cursor-pointer tracking-wider text-pink-500 border-pink-500 border-2 ml-6 hover:bg-pink-500 hover:text-white transition ease-out duration-700"
-          >
-            Monthly
-          </a>
-        </div>
+    <div className="relative h-full flex flex-col sm:justify-center items-center bg-gray-900 overflow-auto">
+      <div className="relative h-full flex flex-col items-center bg-gray-900 w-full">
+        <GallerySort
+          emitSortAction={handleSortAction}
+          emitResizeAction={handleResizeAction}
+        />
+        <YearPicker />
 
         {renderTimeline()}
       </div>
