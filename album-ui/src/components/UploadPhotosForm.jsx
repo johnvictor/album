@@ -103,7 +103,7 @@ export default function UploadPhotosForm() {
 
   return (
     <div className="font-sans h-full">
-      <div className="relative flex h-full flex-col sm:justify-center items-center bg-gray-900">
+      <div className="relative flex h-full flex-col sm:justify-center items-center bg-gray-900 px-4">
         <div className="flex items-center h-full justify-center bg-grey-lighter">
           <div className="flex flex-col h-full flex-auto items-center justify-center bg-grey-lighter">
             {renderAlbumDetailsForm()}

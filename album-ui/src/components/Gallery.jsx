@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import FullScreenView from "./FullScreenView";
 import GallerySort from "./GallerySort";
 import YearPicker from "./YearPicker";
 
 export default function Gallery() {
   const columnSizes = [4, 2, 1];
   const [columnSize, setColumnSize] = useState(columnSizes[0]);
+  const [fullScreen, setFullScreen] = useState(false);
+
+  const handleFullScreen = function () {
+    setFullScreen(!fullScreen);
+  };
   // const
   const renderTimeline = () => {
     return (
-      <div className="relative m-8 h-auto w-full">
+      <div className="relative m-8 h-auto w-full mx-4">
         <div
           className="border-r-2 border-gray-200 border-dotted h-full absolute bottom-0 top-0 z-0"
           style={{ left: "7px" }}
@@ -21,14 +27,18 @@ export default function Gallery() {
                 Oct 2020
               </div>
             </div>
-            <div className="ml-12">
+            <div className="ml-12 mr-4">
               <div>
                 <span className="flex-1 ml-4 mb-4 mt-4 font-medium text-pink-700 text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1">
                   US TRIP
                 </span>
               </div>
               <div className={`grid grid-cols-${columnSize} gap-12`}>
-                <img className="w-full" src="/images/images.jpeg" />
+                <img
+                  className="w-full"
+                  src="/images/images.jpeg"
+                  onClick={handleFullScreen}
+                />
                 <img className="w-full" src="/images/images.jpeg" />
                 <img className="w-full" src="/images/images.jpeg" />
                 <img className="w-full" src="/images/images.jpeg" />
@@ -57,7 +67,7 @@ export default function Gallery() {
                 Sep 2020
               </div>
             </div>
-            <div className="ml-12">
+            <div className="ml-12 mr-4">
               <div className={`grid grid-cols-${columnSize} gap-12`}>
                 <img className="w-full" src="/images/images.jpeg" />
                 <img className="w-full" src="/images/images.jpeg" />
@@ -79,7 +89,7 @@ export default function Gallery() {
                 Aug 2020
               </div>
             </div>
-            <div className="ml-12">
+            <div className="ml-12 mr-4">
               <div className={`grid grid-cols-${columnSize} gap-12`}>
                 <img className="w-full" src="/images/images.jpeg" />
                 <img className="w-full" src="/images/images.jpeg" />
@@ -117,6 +127,8 @@ export default function Gallery() {
 
         {renderTimeline()}
       </div>
+
+      {fullScreen && <FullScreenView handleFullScreen={handleFullScreen} />}
     </div>
   );
 }
